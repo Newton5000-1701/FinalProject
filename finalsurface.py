@@ -50,20 +50,18 @@ plate_positions = (40, 60, 60, 140, -1.0, 1.0)
 
 potential = solve_potential(grid_size, plate_positions)
 
-# Create the grid for the surface plot
 x = np.arange(grid_size[1])
 y = np.arange(grid_size[0])
 X, Y = np.meshgrid(x, y)
 
-# Create the figure for the surface plot
 fig = plt.figure(figsize=(10, 6))
 ax = fig.add_subplot(111, projection='3d')
 
-# Plot the surface
+
 surf = ax.plot_surface(X, Y, potential, cmap="seismic", edgecolor="none")
 fig.colorbar(surf, ax=ax, label="Potential (V)")
 
-# Label the axes
+
 ax.set_title("Scalar Potential in a Rectangular 2D Box with a Parallel Plate Capacitor")
 ax.set_xlabel("x (cm)")
 ax.set_ylabel("y (cm)")
