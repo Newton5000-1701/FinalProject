@@ -71,3 +71,4 @@ ax.set_ylabel("y (cm)")
 ax.set_zlabel("Potential (V)")
 
 plt.show()
+plt.savefig('CapacitorLaplaceSurface.png') 

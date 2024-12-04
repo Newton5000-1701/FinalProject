@@ -69,3 +69,7 @@ plt.ylabel('y (m)')
 
 # Display the plot
 plt.show()
+
+
+plt.savefig('SinusoidalBoundariesLaplace.png') 
+
