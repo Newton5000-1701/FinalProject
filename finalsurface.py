@@ -8,7 +8,6 @@ Created on Wed Dec  4 16:40:19 2024
 
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D  # Needed for 3D plotting
 
 def solve_potential(grid_size, plate_positions, tol=1e-6, max_iter=10000):
     rows, cols = grid_size

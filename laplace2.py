@@ -25,7 +25,7 @@ def solve_laplace(a, b, grid_spacing=0.1, max_iter=10000, tol=1e-6):
     # Top boundary (y = b) Note to self: -1 in V to use last row; DOES NOT MEAN y=-1!
     V[-1, :] = -np.sin(np.pi * x / a)**2
 
-    # Left and Right boundaries (x = 0 and x = a) are already 0 (Dirichlet condition)
+    # Left and Right boundaries (x = 0 and x = a) are already 0! (Dirichlet condition)
 
     for iteration in range(max_iter):
         V_old = V.copy()
@@ -43,31 +43,25 @@ def solve_laplace(a, b, grid_spacing=0.1, max_iter=10000, tol=1e-6):
     return V
 
 # Box dimensions (in meters)
-a = 2.0  # Length in x-direction (meters)
-b = 1.0  # Length in y-direction (meters)
+a = 2.0  
+b = 1.0 
 
-# Solve Laplace's equation
 V = solve_laplace(a, b)
 
-# Create a meshgrid for plotting
 x = np.linspace(0, a, V.shape[1])
 y = np.linspace(0, b, V.shape[0])
 X, Y = np.meshgrid(x, y)
 
-# Plot the result using a filled contour plot
 plt.figure(figsize=(6, 6))
 cp = plt.contourf(X, Y, V, 20, cmap='viridis')
 
-# Add a color bar with the correct label
 cbar = plt.colorbar(cp)
 cbar.set_label('Potential (V)')
 
-# Add axis labels with correct units
 plt.title("Potential Distribution From Laplace's Equation")
 plt.xlabel('x (m)')
 plt.ylabel('y (m)')
 
-# Display the plot
 plt.show()
 
 
